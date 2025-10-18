@@ -21,4 +21,38 @@ img{
     color: #fff;
     font-size: 1.2em;
     font-weight: 700;
+    border: 0;
+    cursor:pointer;
+}
+
+.caixa1{
+    width:320px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #66BBFF;
+    border-radius: 5px;
+}
+.caixa2{
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #66BBFF;
+    border-radius: 5px;
+}
+
+#tabela{
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+
+#tabela th{
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    background-color: #66BBFF;
+    color: white;
+}
+
+#tabela td{
+    border: 1px solid #ddd;
+    padding: 10px;
 }

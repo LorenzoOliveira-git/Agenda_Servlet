@@ -1,7 +1,7 @@
 package com.agenda.MODEL;
 
 public class JavaBeans {
-    private String idcon;
+    private int idcon;
     private String nome;
     private String fone;
     private String email;
@@ -10,7 +10,7 @@ public class JavaBeans {
     public JavaBeans(){
         super();
     }
-    public JavaBeans(String idcon, String nome, String fone, String email){
+    public JavaBeans(int idcon, String nome, String fone, String email){
         this.idcon = idcon;
         this.nome = nome;
         this.fone = fone;
@@ -18,7 +18,7 @@ public class JavaBeans {
     }
 
 //    Getters e Setters
-    public String getIdcon() {
+    public int getIdcon() {
         return idcon;
     }
     public String getNome() {
@@ -31,7 +31,7 @@ public class JavaBeans {
         return email;
     }
 
-    public void setIdcon(String idcon) {
+    public void setIdcon(int idcon) {
         this.idcon = idcon;
     }
     public void setNome(String nome) {
