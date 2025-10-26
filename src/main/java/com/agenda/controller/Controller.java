@@ -27,7 +27,7 @@ public class Controller extends HttpServlet{
         } else if (acao.equals("/inserir")) {
             novoContato(request, response);
         } else if( acao.equals("/modificar")){
-
+            modificarContato(request,response);
         }
         else {
             response.sendRedirect("index.html");
@@ -65,10 +65,8 @@ public class Controller extends HttpServlet{
 
     public void modificarContato(HttpServletRequest request,
                                  HttpServletResponse response){
-        JavaBeans javaBeans = new JavaBeans();
+        contato.setIdcon(Integer.parseInt(request.getParameter("id")));
 
-        javaBeans.setIdcon(Integer.parseInt(request.getParameter("id")));
-
-        dao.listarContatos(javaBeans.getIdcon());
+        dao.selecionarContato(contato);
     }
 }

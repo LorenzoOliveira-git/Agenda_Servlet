@@ -83,31 +83,25 @@ public class DAO {
         }
     }
 
-    public ArrayList<JavaBeans> listarContatos(int idcon){
-        ArrayList<JavaBeans> lista = new ArrayList<>();
+    public void selecionarContato(JavaBeans contato){
         Connection conn = null;
         try{
             conn = conectar();
-
             String sql = "SELECT * FROM contatos WHERE idcon=?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1,idcon);
+            pstmt.setInt(1,contato.getIdcon());
             ResultSet rs = pstmt.executeQuery(sql);
             while(rs.next()){
-
-                int id = rs.getInt("idcon");
-                String nome = rs.getString("nome");
-                String fone = rs.getString("fone");
-                String email = rs.getString("email");
-
-                lista.add(new JavaBeans(id,nome,fone,email));
+                contato.setIdcon(rs.getInt(1));
+                contato.setNome(rs.getString(2));
+                contato.setFone(rs.getString(3));
+                contato.setEmail(rs.getString(4));
             }
-            return lista;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            return lista;
         }finally {
             desconectar(conn);
         }
     }
+
 }
