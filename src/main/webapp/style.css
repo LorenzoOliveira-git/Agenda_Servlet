@@ -24,6 +24,17 @@ img{
     border: 0;
     cursor:pointer;
 }
+.botao2{
+    text-decoration:none;
+    background-color: #d51213;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 700;
+    border: 0;
+    cursor:pointer;
+}
 
 .caixa1{
     width:320px;

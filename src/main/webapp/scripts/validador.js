@@ -1,18 +1,18 @@
 function validar(){
-    let nome = frmContato.nome.value
-    let fone = frmContato.fone.value
+    let nome = update.nome.value
+    let fone = update.fone.value
 
     if(nome === ""){
         alert("Preencha o campo nome.")
-        frmContato.nome.focus()
+        update.nome.focus()
         return false
     }
     else if (fone === ""){
         alert("Preencha o campo telefone.")
-        frmContato.fone.focus()
+        update.fone.focus()
         return false
     }
     else {
-        document.forms["frmContato"].submit()
+        document.forms["update"].submit()
     }
 }

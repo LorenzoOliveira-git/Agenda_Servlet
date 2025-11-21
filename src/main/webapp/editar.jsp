@@ -8,22 +8,26 @@
 </head>
 <body>
 <h1>Editar Contato</h1>
-<form action="inserir" name="">
+<form action="update" name="update">
     <table>
         <tr>
-            <td><input type="text" name="idcon" class="caixa3"></td>
+            <td><input type="text" name="idcon" id="caixa3" readonly
+                       value="<%=request.getAttribute("idcon")%>"></td>
         </tr>
         <tr>
-            <td><input type="text" name="nome" class="caixa1"></td>
+            <td><input type="text" name="nome" class="caixa1"
+                       value="<%=request.getAttribute("nome")%>"></td>
         </tr>
         <tr>
-            <td><input type="text" name="fone" class="caixa2"></td>
+            <td><input type="text" name="fone" class="caixa2"
+                       value="<%=request.getAttribute("fone")%>"></td>
         </tr>
         <tr>
-            <td><input type="text" name="email" class="caixa1"></td>
+            <td><input type="text" name="email" class="caixa1"
+                       value="<%=request.getAttribute("email")%>"></td>
         </tr>
     </table>
-    <input type="button" value="adicionar" class="botao" onclick="validar()">
+    <input type="submit" value="adicionar" class="botao" onclick="validar()">
 </form>
 <script src="scripts/validador.js"></script>
 </body>

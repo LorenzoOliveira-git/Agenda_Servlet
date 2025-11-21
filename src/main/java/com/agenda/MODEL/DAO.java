@@ -3,6 +3,7 @@ package com.agenda.MODEL;
 import java.sql.*;
 import java.util.ArrayList;
 import io.github.cdimascio.dotenv.Dotenv;
+import jakarta.servlet.http.HttpServletRequest;
 
 public class DAO {
     Dotenv dotenv = Dotenv.load();
@@ -32,7 +33,7 @@ public class DAO {
     }
 
 //    Métodos do CRUD
-//    CRUD - inserirContat
+//    CRUD - inserirContato
     public void inserirContato(JavaBeans contato){
         String sql = "INSERT INTO contatos (nome, fone, email) VALUES (?,?,?)";
         Connection conn = null;
@@ -87,16 +88,17 @@ public class DAO {
         Connection conn = null;
         try{
             conn = conectar();
-            String sql = "SELECT * FROM contatos WHERE idcon=?";
+            String sql = "SELECT * FROM contatos WHERE idcon = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1,contato.getIdcon());
-            ResultSet rs = pstmt.executeQuery(sql);
+            ResultSet rs = pstmt.executeQuery();
             while(rs.next()){
                 contato.setIdcon(rs.getInt(1));
                 contato.setNome(rs.getString(2));
                 contato.setFone(rs.getString(3));
                 contato.setEmail(rs.getString(4));
             }
+            System.out.println(contato);
         }catch(SQLException sqle){
             sqle.printStackTrace();
         }finally {
@@ -104,4 +106,43 @@ public class DAO {
         }
     }
 
+    public void modificarContato(JavaBeans contato){
+        Connection conn = null;
+        String sql = "UPDATE contatos SET nome=?, fone=?, email=? WHERE " +
+                "idcon=?";
+        try{
+            conn = conectar();
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,contato.getNome());
+            pstmt.setString(2,contato.getFone());
+            pstmt.setString(3,contato.getEmail());
+            pstmt.setInt(4,contato.getIdcon());
+
+            pstmt.executeUpdate();
+
+        }catch(SQLException sqle){
+            sqle.printStackTrace();
+        }finally {
+            desconectar(conn);
+        }
+    }
+
+    public void deletarContato(JavaBeans contato){
+        Connection conn = null;
+        String sql = "DELETE FROM contatos WHERE idcon=?";
+        try{
+            conn = conectar();
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            pstmt.setInt(1,contato.getIdcon());
+
+            pstmt.executeUpdate();
+        }catch(SQLException sqle){
+            sqle.printStackTrace();
+        }finally{
+            desconectar(conn);
+        }
+    }
 }
