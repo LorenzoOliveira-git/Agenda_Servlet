@@ -13,16 +13,14 @@
     <div class="containerCadastro">
         <div class="login">
             <div class="informacoes">
-                <h1>Faça seu login</h1>
-                <form action="validarLogin" method="post">
+                <h1>Faça seu cadastro</h1>
+                <form action="validarCadastro" method="post">
                     <input type="text" name="email" id="email" class="caixa" placeholder="E-mail">
                     <br>
                     <input type="password" name="senha" id="senha" class="caixa" placeholder="Senha">
                     <br>
                     <input type="submit" value="Enviar" id="botao">
                 </form>
-                <a href="cadastro.jsp">Ainda não tem uma conta?
-                    Cadastre-se aqui!</a>
             </div>
         </div>
     </div>

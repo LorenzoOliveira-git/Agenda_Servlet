@@ -1,16 +1,18 @@
 package com.agenda.MODEL;
 
-public class JavaBeans {
+public class Contato {
     private int idcon;
+    private int idusuario;
     private String nome;
     private String fone;
     private String email;
 
 //    Construtores
-    public JavaBeans(){
+    public Contato(){
         super();
     }
-    public JavaBeans(int idcon, String nome, String fone, String email){
+    public Contato(int idcon,String nome, String fone,
+                   String email){
         this.idcon = idcon;
         this.nome = nome;
         this.fone = fone;
@@ -21,6 +23,7 @@ public class JavaBeans {
     public int getIdcon() {
         return idcon;
     }
+    public int getIdusuario(){return idusuario;}
     public String getNome() {
         return nome;
     }
@@ -34,6 +37,7 @@ public class JavaBeans {
     public void setIdcon(int idcon) {
         this.idcon = idcon;
     }
+    public void setIdusuario(int idusuario){this.idusuario = idusuario;}
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -44,13 +48,4 @@ public class JavaBeans {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "JavaBeans{" +
-                "idcon=" + idcon +
-                ", nome='" + nome + '\'' +
-                ", fone='" + fone + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
 }
